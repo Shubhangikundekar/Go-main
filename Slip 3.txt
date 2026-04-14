@@ -1,0 +1,89 @@
+Slip 3
+Q1. A) Write a program in the GO language using function to check [20 Marks]
+whether accepts number is palindrome or not.
+package main
+
+import "fmt"
+
+func Palindrome(num int) bool {
+	original := num
+	reverse := 0
+	for num > 0 {
+		digit := num % 10
+		reverse = reverse*10 + digit
+		num = num / 10
+
+	}
+	return original == reverse
+}
+func main() {
+	var number int
+
+	fmt.Print("Enter a number: ")
+	fmt.Scanln(&number)
+
+	
+	if number < 0 {
+		number = -number
+	}
+
+	if Palindrome(number) {
+		fmt.Println("The number is a Palindrome.")
+	} else {
+		fmt.Println("The number is NOT a Palindrome.")
+	}
+}
+
+
+OR
+
+
+B) Write a Program in GO language to accept n records of employee [20 Marks]
+information (eno,ename, salary) and display record of employees
+having maximum salary.
+package main
+
+import "fmt"
+
+type Employee struct {
+	eno    int
+	ename  string
+	salary float64
+}
+
+func main() {
+	var n int
+
+	fmt.Print("Enter number of employees: ")
+	fmt.Scan(&n)
+
+	emp := make([]Employee, n)
+
+	for i := 0; i < n; i++ {
+		fmt.Println("\nEnter details of employee", i+1)
+
+		fmt.Print("Employee No: ")
+		fmt.Scan(&emp[i].eno)
+
+		fmt.Print("Employee Name: ")
+		fmt.Scan(&emp[i].ename)
+
+		fmt.Print("Salary: ")
+		fmt.Scan(&emp[i].salary)
+	}
+
+	max := emp[0].salary
+	index := 0
+
+	for i := 1; i < n; i++ {
+		if emp[i].salary > max {
+			max = emp[i].salary
+			index = i
+		}
+	}
+
+	fmt.Println("\nEmployee with Maximum Salary")
+	fmt.Println("Employee No:", emp[index].eno)
+	fmt.Println("Employee Name:", emp[index].ename)
+	fmt.Println("Salary:", emp[index].salary)
+}

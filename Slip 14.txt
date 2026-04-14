@@ -1,0 +1,27 @@
+Slip 14
+Q1. A) Write a program in GO language to demonstrate working of slices [20 Marks]
+(like append, remove, copy etc.)
+package main
+
+import "fmt"
+
+func main() {
+
+	s := []int{10, 20, 30, 40}
+	fmt.Println("Original Slice:", s)
+
+	s = append(s, 50)
+	fmt.Println("After Append:", s)
+
+	s = append(s[:2], s[3:]...)
+	fmt.Println("After Remove:", s)
+
+	newSlice := make([]int, len(s))
+	copy(newSlice, s)
+	fmt.Println("Copied Slice:", newSlice)
+
+	newSlice[0] = 100
+	fmt.Println("Modified Copied Slice:", newSlice)
+
+	fmt.Println("Original Slice After Copy:", s)
+}

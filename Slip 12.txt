@@ -1,0 +1,32 @@
+Slip 12
+Q1. A) Write a program in GO language to swap two numbers using call [20 Marks]
+by reference concept
+package main
+
+import "fmt"
+
+func swap(a *int, b *int) {
+	temp := *a
+	*a = *b
+	*b = temp
+}
+
+func main() {
+	var num1, num2 int
+
+	fmt.Print("Enter first number: ")
+	fmt.Scanln(&num1)
+
+	fmt.Print("Enter second number: ")
+	fmt.Scanln(&num2)
+
+	fmt.Println("\nBefore Swapping:")
+	fmt.Println("First number:", num1)
+	fmt.Println("Second number:", num2)
+
+	swap(&num1, &num2)
+
+	fmt.Println("\nAfter Swapping:")
+	fmt.Println("First number:", num1)
+	fmt.Println("Second number:", num2)
+}

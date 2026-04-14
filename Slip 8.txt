@@ -1,0 +1,92 @@
+Slip 8
+Q1. A) Write a program in GO language to accept the book details such
+as BookID, Title, Author, Price. Read and display the details of
+'n' number of books
+package main
+
+import "fmt"
+
+type Books struct {
+	title   string
+	author  string
+	subject string
+	book_id int
+}
+
+func main() {
+	var Book1 Books
+	var Book2 Books
+
+	Book1.title = "Go Programming"
+	Book1.author = "ABC"
+	Book1.subject = "Go Programming Tutorial"
+	Book1.book_id = 6495407
+
+	Book2.title = "Java Programming"
+	Book2.author = "Herbert Schildt"
+	Book2.subject = "Java Programming Tutorial"
+	Book2.book_id = 6495700
+
+	fmt.Printf("Book 1 title : %s\n", Book1.title)
+	fmt.Printf("Book 1 author : %s\n", Book1.author)
+	fmt.Printf("Book 1 subject : %s\n", Book1.subject)
+	fmt.Printf("Book 1 book_id : %d\n", Book1.book_id)
+
+	fmt.Printf("Book 2 title : %s\n", Book2.title)
+	fmt.Printf("Book 2 author : %s\n", Book2.author)
+	fmt.Printf("Book 2 subject : %s\n", Book2.subject)
+	fmt.Printf("Book 2 book_id : %d\n", Book2.book_id)
+}
+
+
+OR
+B) Write a program in GO language to create an interface shape that
+includes area and perimeter. Implements these methods in circle
+and rectangle type.
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type Shape interface {
+	area() float64
+	perimeter() float64
+}
+
+type Circle struct {
+	radius float64
+}
+
+type Rectangle struct {
+	length  float64
+	breadth float64
+}
+
+func (c Circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c Circle) perimeter() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+func (r Rectangle) area() float64 {
+	return r.length * r.breadth
+}
+
+func (r Rectangle) perimeter() float64 {
+	return 2 * (r.length + r.breadth)
+}
+
+func main() {
+	c := Circle{radius: 5}
+	r := Rectangle{length: 4, breadth: 3}
+
+	fmt.Println("Circle Area:", c.area())
+	fmt.Println("Circle Perimeter:", c.perimeter())
+
+	fmt.Println("Rectangle Area:", r.area())
+	fmt.Println("Rectangle Perimeter:", r.perimeter())
+}

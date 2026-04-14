@@ -1,0 +1,81 @@
+Slip 1
+Q1. A) Write a program in GO language to accept user choice and print answers [20 Marks]
+using arithmetic operators.
+package main
+
+import "fmt"
+
+func main() {
+	var num1, num2 float64
+	var choice int
+
+	
+	fmt.Print("Enter first number: ")
+	fmt.Scanln(&num1)
+
+	fmt.Print("Enter second number: ")
+	fmt.Scanln(&num2)
+
+	
+	fmt.Println("\nChoose Operation:")
+	fmt.Println("1. Addition (+)")
+	fmt.Println("2. Subtraction (-)")
+	fmt.Println("3. Multiplication (*)")
+	fmt.Println("4. Division (/)")
+
+	fmt.Print("Enter your choice (1-4): ")
+	fmt.Scanln(&choice)
+
+	
+	switch choice {
+	case 1:
+		fmt.Println("Result:", num1+num2)
+	case 2:
+		fmt.Println("Result:", num1-num2)
+	case 3:
+		fmt.Println("Result:", num1*num2)
+	case 4:
+		if num2 != 0 {
+			fmt.Println("Result:", num1/num2)
+		} else {
+			fmt.Println("Error: Division by zero is not allowed.")
+		}
+	default:
+		fmt.Println("Invalid choice.")
+	}
+}
+
+OR
+
+B) Write a program in GO language to accept n student details like roll_no, [20 Marks]
+stud_name, mark1,mark2, mark3. Calculate the total and average of
+marks using structure.
+package main
+
+import "fmt"
+
+type Student struct {
+	roll_no             int
+	stud_name           string
+	mark1, mark2, mark3 int
+}
+
+func main() {
+	var n int
+	fmt.Print("Enter number of students: ")
+	fmt.Scan(&n)
+
+	var s Student
+
+	for i := 1; i <= n; i++ {
+		fmt.Println("Enter Roll No, Name, Mark1, Mark2, Mark3:")
+		fmt.Scan(&s.roll_no, &s.stud_name, &s.mark1, &s.mark2, &s.mark3)
+
+		total := s.mark1 + s.mark2 + s.mark3
+		avg := total / 3
+
+		fmt.Println("Total:", total)
+		fmt.Println("Average:", avg)
+
+	}
+}

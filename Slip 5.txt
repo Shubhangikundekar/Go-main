@@ -1,0 +1,50 @@
+Slip 5
+B) Write a program in GO language to accept n records of employee
+information (eno,ename,salary) and display records of employees
+having minimum salary.
+package main
+
+import "fmt"
+
+type Employee struct {
+	eno    int
+	ename  string
+	salary float64
+}
+
+func main() {
+	var n int
+
+	fmt.Print("Enter number of employees: ")
+	fmt.Scan(&n)
+
+	emp := make([]Employee, n)
+
+	for i := 0; i < n; i++ {
+		fmt.Println("\nEnter details of employee", i+1)
+
+		fmt.Print("Employee No: ")
+		fmt.Scan(&emp[i].eno)
+
+		fmt.Print("Employee Name: ")
+		fmt.Scan(&emp[i].ename)
+
+		fmt.Print("Salary: ")
+		fmt.Scan(&emp[i].salary)
+	}
+
+	max := emp[0].salary
+	index := 0
+
+	for i := 1; i < n; i++ {
+		if emp[i].salary > max {
+			max = emp[i].salary
+			index = i
+		}
+	}
+
+	fmt.Println("\nEmployee with Maximum Salary")
+	fmt.Println("Employee No:", emp[index].eno)
+	fmt.Println("Employee Name:", emp[index].ename)
+	fmt.Println("Salary:", emp[index].salary)
+}

@@ -1,0 +1,35 @@
+Slip 9
+Q1. A) Write a program in GO language using a function to check [20 Marks]
+whether the accepted number is palindrome or not.
+package main
+
+import "fmt"
+
+func Palindrome(num int) bool {
+	original := num
+	reverse := 0
+	for num > 0 {
+		digit := num % 10
+		reverse = reverse*10 + digit
+		num = num / 10
+
+	}
+	return original == reverse
+}
+func main() {
+	var number int
+
+	fmt.Print("Enter a number: ")
+	fmt.Scanln(&number)
+
+	
+	if number < 0 {
+		number = -number
+	}
+
+	if Palindrome(number) {
+		fmt.Println("The number is a Palindrome.")
+	} else {
+		fmt.Println("The number is NOT a Palindrome.")
+	}
+}

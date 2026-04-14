@@ -1,0 +1,37 @@
+Slip 17
+Q1. A) Write a program in GO language to illustrate the concept of [20 Marks]
+returning multiple values from a function. ( Add, Subtract,
+Multiply, Divide)
+package main
+
+import "fmt"
+
+func calculate(a float64, b float64) (float64, float64, float64, float64) {
+    sum := a + b
+    diff := a - b
+    product := a * b
+
+    var division float64
+    if b != 0 {
+        division = a / b
+    } else {
+        division = 0
+        fmt.Println("Division by zero is not allowed")
+    }
+
+    return sum, diff, product, division
+}
+
+func main() {
+    var x, y float64
+
+    fmt.Print("Enter two numbers: ")
+    fmt.Scan(&x, &y)
+
+        s, d, p, div := calculate(x, y)
+
+    fmt.Println("Addition:", s)
+    fmt.Println("Subtraction:", d)
+    fmt.Println("Multiplication:", p)
+    fmt.Println("Division:", div)
+}
